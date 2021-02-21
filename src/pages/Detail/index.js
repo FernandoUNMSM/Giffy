@@ -8,10 +8,11 @@ function Detail({params}) {
     const gif = gifs.find(sg => sg.id === params.id)
     console.log(gif)
     return (
-        // <h1>GIF con id {params.id}</h1>
-        <Gif
-            {...gif}
-        />
+        <>
+            <Gif
+                {...gif}
+            />
+        </>
     )
 }
 export default Detail

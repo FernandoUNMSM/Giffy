@@ -1,0 +1,7 @@
+.category{
+  width: 30%;
+  font-size: 20px;
+}
+.category ul {
+  list-style: none;
+}

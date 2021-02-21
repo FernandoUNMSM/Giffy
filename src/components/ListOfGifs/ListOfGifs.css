@@ -38,6 +38,7 @@
   column-gap: .5em;
   max-width: 1200px;
   margin: 0 20px;
+  width: 60%;
 }
 
 .ListOfGifs-item {

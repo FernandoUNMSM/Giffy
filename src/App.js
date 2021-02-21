@@ -20,15 +20,15 @@ function App() {
       <div className="App">
         <section className="App-content">
           <GifsContextProvider>
-            <Route 
+            <Route
               component = {Home}
               path = "/"
             />
-            <Route 
+            <Route
               component = {SearchResults}
               path = "/search/:keyword"
             />
-            <Route 
+            <Route
               component = {Detail}
               path = "/searchGif/:id"
             />
