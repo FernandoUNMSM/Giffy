@@ -1,9 +1,10 @@
 import React, { useState } from "react"
 import { Link, useLocation } from "wouter"
-import ListOfGifs from "../../components/ListOfGifs/ListOfGifts"
-import { useGifts } from "../../hooks/useGifs"
-import TrendingSearches from '../../components/TrendingSearches'
+import ListOfGifs from 'components/ListOfGifs/ListOfGifts'
+import { useGifts } from 'hooks/useGifs'
+import TrendingSearches from 'components/TrendingSearches'
 import './styles.css'
+
 function Home() {
   const [keyword, setKeyword] = useState('')
   const [path, pushLocation] = useLocation()
