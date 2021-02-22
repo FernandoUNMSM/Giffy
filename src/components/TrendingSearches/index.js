@@ -1,12 +1,23 @@
-import React, {useState, useEffect} from 'react'
-import Category from './../Category'
-import getTrendingTerms from '../../services/getTrendingTerms'
+import React, { useState, useEffect, useRef } from 'react'
+import Category from 'components/Category'
+import getTrendingTerms from 'services/getTrendingTerms'
+import useNearScreen from 'hooks/useNearScreen'
 
-export default function TrendingSearches (){
+function TrendingSearches() {
   const [trends, setTrends] = useState([])
-  useEffect(()=>{
+  useEffect(() => {
     getTrendingTerms()
     .then(setTrends)
-  },[])
-  return <Category name="Gifs mas buscados" options={trends}/>
+  }, [])
+  return <Category name="Gifs mas buscados" options={trends} />
+}
+
+export default function LazyTrending() {
+  const {isNearScreen, fromRef} = useNearScreen('')
+
+  return <div ref={fromRef}>
+    {
+      isNearScreen ? <TrendingSearches/> : null
+    }
+  </div>
 }
