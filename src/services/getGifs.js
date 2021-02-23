@@ -17,8 +17,8 @@ const fromApiResponseToGifs = apiResponse => {
 }
 
 
-function getGifs({ keyword = 'monogatari' } = {}) {
-	const API = `${API_URL}/gifs/search?api_key=${API_KEY}=${keyword}&limit=25&offset=0&rating=g&lang=en`;
+function getGifs({ limit = 25, keyword = 'monogatari', page = 0 } = {}) {
+	const API = `${API_URL}/gifs/search?api_key=${API_KEY}=${keyword}&limit=${limit}&offset=${limit*page}&rating=g&lang=en`;
 
 	return fetch(API)
 		.then(res => res.json())
