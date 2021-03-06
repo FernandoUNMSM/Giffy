@@ -5,6 +5,7 @@ import getTrendingTerms from 'services/getTrendingTerms'
 export default function TrendingSearches() {
   const [trends, setTrends] = useState([])
   useEffect(() => {
+    // console.log('jjj')
     getTrendingTerms()
     .then(setTrends)
   }, [])
