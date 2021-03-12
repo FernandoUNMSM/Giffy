@@ -16,17 +16,17 @@ function SearchResults({ params }) {
     externalRef: loading ? null : externalRef,
     once: false
   })
-  const handleNextPage = () => setPage(prevPage => prevPage + 1)
-  // const handleNextPage = () => console.log('jk')
+
+  // const handleNextPage = () => setPage(prevPage => prevPage + 1)
 
   const debounceHandleNextPage = useCallback(debounce(
-    handleNextPage, 1000
-  ),[])
+    () => setPage(prevPage => prevPage + 1), 200
+  ),[])//Usamos el useCallback porque se renderiza varias veces el componente y cada ves que se renderiza estaria definiendo nuevamente la funcion y por eso usamos el useCallback para que guarde la funcion
 
   useEffect(()=>{
     console.log(isNearScreen)
     if(isNearScreen) debounceHandleNextPage()
-  }, [isNearScreen])
+  }, [isNearScreen, debounceHandleNextPage])
 
   return <>
     {loading
