@@ -5,8 +5,5 @@ const Context = React.createContext({
   suscribeteAlCanal: 'true'
 }
 )//Estos datos se cargaran si el consumidor intenta acceder sin tener el .Provider
-{
-  // console.log('naun')
 
-}
 export default Context

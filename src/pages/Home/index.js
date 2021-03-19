@@ -1,30 +1,30 @@
-import React, { useState } from "react"
-import { Link, useLocation } from "wouter"
+import React, { useCallback } from "react"
+import { useLocation } from "wouter"
 import ListOfGifs from 'components/ListOfGifs/ListOfGifts'
-import { useGifts } from 'hooks/useGifs'
+import { useGifs } from 'hooks/useGifs'
 import TrendingSearches from 'components/TrendingSearches'
 import './styles.css'
+import SearchForm from 'components/SearchForm'
+import {Helmet} from 'react-helmet'
 
 function Home() {
-  const [keyword, setKeyword] = useState('')
-  const [path, pushLocation] = useLocation()
-  const {loading, gifs} = useGifts()
+  const [Link, pushLocation] = useLocation()
+  const {gifs} = useGifs()
 
-  const handleSubmit = evt => {
-    evt.preventDefault()//Evita recargar la pagina con el sumbit del form
+  const handleSubmit = useCallback((keyword) => {
     pushLocation(`/search/${keyword}`)//Cambia la ruta
-    console.log(keyword)
-  }
-  const handleChange = evt => {
-    setKeyword(evt.target.value)
-  }
+  },[pushLocation])
+
+  // const element = useMemo(() => <SearchForm onSubmit={handleSubmit}/>,[handleSubmit])
+  //esta es una manera de hacer que no se renderize el seachform cuando se renderiza el home
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <button>Buscar</button>
-        <input placeholder="Search a gif here..." onChange={handleChange} type='text' value={keyword} />
-      </form>
+      <Helmet>
+        <title>Home || Giffy</title>
+      </Helmet>
+      <SearchForm onSubmit={handleSubmit}/>
+      {/* {element} */}
       <div className="App-main">
         <div className="App-results">
           <h3 className="App-title">Última búsqueda</h3>

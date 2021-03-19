@@ -1,16 +1,4 @@
-.homeContainer {
-  display: flex;
-  /* flex-direction: row; */
-  justify-content: space-around;
+.App-main {
+  max-width: 1400px;
+  margin: auto;
 }
-/* @media (max-width: 1010px) {
-  .homeContainer {
-    flex-direction: column;
-  }
-  .ListOfGifs {
-    width: initial;
-  }
-  .category {
-    width: initial;
-  }
-} */

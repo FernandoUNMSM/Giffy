@@ -4,7 +4,7 @@ import GifsContext from '../context/GifsContext'
 
 const INITIAL_PAGE = 0
 
-export function useGifts({ keyword } = { keyword: null }){
+export function useGifs({ keyword } = { keyword: null }){
   const [loading, setLoading] = useState(false)
   const [loadingNextPage, setLoadingNextPage] = useState(false)
   // const [gifs, setGifs] = useState([])
@@ -24,7 +24,7 @@ export function useGifts({ keyword } = { keyword: null }){
       //Guardamos la keyword usada el el localstorage
       if(keyword) localStorage.setItem('lastKeyword', keyword)
     })
-  }, [keyword, setGifs])
+  }, [keyword, setGifs, keywordToUse])
 
   useEffect(()=>{
     if(page === INITIAL_PAGE) return
@@ -34,7 +34,7 @@ export function useGifts({ keyword } = { keyword: null }){
         setGifs(prevGifs => prevGifs.concat(nextGifs))
         setLoadingNextPage(false)
       })
-  },[page])
+  },[page, keywordToUse, setGifs])
 
   return {loading, gifs, setPage}
 }

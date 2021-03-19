@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import Category from 'components/Category'
 import getTrendingTerms from 'services/getTrendingTerms'
 
@@ -9,5 +9,5 @@ export default function TrendingSearches() {
     getTrendingTerms()
     .then(setTrends)
   }, [])
-  return <Category name="Gifs mas buscados" options={trends} />
+  return <Category name="Trendings" options={trends} />
 }

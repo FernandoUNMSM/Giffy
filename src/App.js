@@ -8,6 +8,7 @@ import SearchResults from './pages/SearchResults';
 import Detail from './pages/Detail';
 import StaticContext from './context/StaticContext'
 import { GifsContextProvider } from './context/GifsContext';
+import Page404 from 'pages/404';
 
 function App() {
   return (
@@ -31,6 +32,10 @@ function App() {
             <Route
               component = {Detail}
               path = "/searchGif/:id"
+            />
+            <Route
+              component = {Page404}
+              path = "/404"
             />
           </GifsContextProvider>
           {/* <ListOfGifts keyword={'nekopara'}/> */}
